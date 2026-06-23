@@ -1,27 +1,14 @@
 # High Level Architecture
 
-User
-  |
-  v
-Load Balancer
-  |
-  v
-API Gateway
-  |
-  +----------------+
-  |                |
-  v                v
-Payment Service   P2P Service
-  |                |
-  +-------+--------+
-          |
-          v
-       Kafka
-          |
-          v
-Transaction Processor
-          |
-    +-----+-----+
-    |           |
-    v           v
- Redis      PostgreSQL
+```mermaid
+flowchart LR
+    User --> LB[Load Balancer]
+    LB --> APIGW[API Gateway]
+    APIGW --> PS[Payment Service]
+    APIGW --> P2P[P2P Service]
+    PS --> Kafka
+    P2P --> Kafka
+    Kafka --> TP[Transaction Processor]
+    TP --> Redis
+    TP --> PostgreSQL
+```
