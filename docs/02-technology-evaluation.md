@@ -57,7 +57,7 @@ The selected technology stack can support a fintech transaction processing engin
 | CockroachDB        | High        | Excellent   | Moderate    | Geo-distributed databases | Not Selected |
 | TiDB               | High        | Excellent   | Moderate    | HTAP workloads            | Not Selected |
 
-###Why PostgreSQL + Citus?
+### Why PostgreSQL + Citus?
 
 Strong PostgreSQL ecosystem.
 Horizontal scaling with Citus.
