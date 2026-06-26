@@ -104,3 +104,29 @@ Compared to CockroachDB and TiDB, PostgreSQL + Citus offers a strong balance bet
 ## Final Decision
 
 PostgreSQL + Citus provides the best combination of transactional reliability, scalability, performance, and maintainability for a high-throughput transaction processing engine targeting **12,000 TPS**.
+
+# ADR-002 Database Selection
+
+## Status
+
+Accepted
+
+## Context
+
+The system requires a reliable relational database capable of handling financial transactions.
+
+## Decision
+
+PostgreSQL is selected because it supports ACID transactions, indexing, reliability, and scalability.
+
+## Consequences
+
+Pros
+
+- Strong consistency
+- ACID support
+- Open source
+
+Cons
+
+- Scaling writes is more difficult than NoSQL databases.
