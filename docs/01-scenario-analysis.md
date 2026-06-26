@@ -20,3 +20,36 @@ Build a high-throughput transaction processing engine capable of handling 12,000
 - Duplicate requests
 - Database consistency
 - Service failures
+
+# Scenario Analysis
+
+## Project Scenario
+
+The system is a high-throughput transaction processing engine for digital payments.
+
+A customer sends money to another customer using a payment application.
+
+The system should process around 12,000 transactions per second while maintaining consistency, availability, and fault tolerance.
+
+---
+
+## Functional Requirements
+
+- Accept payment requests.
+- Validate sender and receiver.
+- Process payment.
+- Store transaction details.
+- Send notification.
+- Return success or failure response.
+
+---
+
+## Non-Functional Requirements
+
+- Throughput: 12,000 TPS
+- High Availability
+- Low Latency
+- Fault Tolerance
+- Data Consistency
+- Scalability
+- Security
