@@ -1,0 +1,25 @@
+2026-06-30 08:51:54 [WARNING]  * Debugger is active!
+2026-06-30 08:51:54 [INFO]  * Debugger PIN: 476-403-835
+2026-06-30 08:52:21 [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2026-06-30 08:52:21 [INFO] [33mPress CTRL+C to quit[0m
+2026-06-30 08:52:21 [INFO]  * Restarting with stat
+2026-06-30 08:52:22 [WARNING]  * Debugger is active!
+2026-06-30 08:52:22 [INFO]  * Debugger PIN: 476-403-835
+2026-06-30 08:56:53 [INFO] Received payment request.
+2026-06-30 08:56:53 [INFO] Connecting to database to insert transaction...
+2026-06-30 08:56:53 [INFO] Transaction saved successfully. ID: f6a71164-b886-4066-8597-26314e62c3f2
+2026-06-30 08:56:53 [INFO] 127.0.0.1 - - [30/Jun/2026 08:56:53] "[35m[1mPOST /payment HTTP/1.1[0m" 201 -
+2026-06-30 09:00:14 [INFO] Received payment request.
+2026-06-30 09:00:14 [INFO] Connecting to database to insert transaction...
+2026-06-30 09:00:14 [INFO] Transaction saved successfully. ID: 95934795-3ada-4ef0-a2e4-ec3ac5c13854
+2026-06-30 09:00:14 [INFO] 127.0.0.1 - - [30/Jun/2026 09:00:14] "[35m[1mPOST /payment HTTP/1.1[0m" 201 -
+2026-06-30 11:00:11 [INFO]  * Detected change in 'C:\\Users\\Suman\\OneDrive\\high-thriughout-transaction-processing-engine\\services\\payment_service.py', reloading
+2026-06-30 11:00:11 [INFO]  * Detected change in 'C:\\Users\\Suman\\OneDrive\\high-thriughout-transaction-processing-engine\\services\\payment_service.py', reloading
+2026-06-30 11:00:11 [INFO]  * Restarting with stat
+2026-06-30 11:00:13 [WARNING]  * Debugger is active!
+2026-06-30 11:00:13 [INFO]  * Debugger PIN: 476-403-835
+2026-06-30 11:00:13 [INFO]  * Debugger PIN: 476-403-835
+2026-06-30 11:00:50 [INFO]  * Detected change in 'C:\\Users\\Suman\\OneDrive\\high-thriughout-transaction-processing-engine\\routes\\payment.py', reloading
+2026-06-30 11:00:51 [INFO]  * Detected change in 'C:\\Users\\Suman\\OneDrive\\high-thriughout-transaction-processing-engine\\routes\\payment.py', reloading
+2026-06-30 11:00:51 [INFO]  * Restarting with stat
