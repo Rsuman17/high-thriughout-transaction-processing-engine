@@ -1,5 +1,8 @@
 import uuid
+import json
+
 from db import get_connection
+from cache.redis_client import redis_client
 
 
 def create_payment(sender, receiver, amount, idempotency_key):
@@ -7,7 +10,6 @@ def create_payment(sender, receiver, amount, idempotency_key):
     conn = get_connection()
     cursor = conn.cursor()
 
-    # Check if request already processed
     cursor.execute(
         """
         SELECT transaction_id
@@ -107,11 +109,73 @@ def get_all_payments():
     return payments
 
 
-def get_transaction(transaction_id):
-
-    return get_payment(transaction_id)
-
-
 def get_all_transactions():
 
-    return get_all_payments()
+    conn = get_connection()
+    cursor = conn.cursor()
+
+    cursor.execute(
+        """
+        SELECT *
+        FROM payments
+        ORDER BY created_at DESC
+        """
+    )
+
+    transactions = cursor.fetchall()
+
+    cursor.close()
+    conn.close()
+
+    return transactions
+
+
+def get_transaction(transaction_id):
+
+    cache_key = f"transaction:{transaction_id}"
+
+    cached = redis_client.get(cache_key)
+
+    if cached:
+        print("Fetched from Redis")
+        return json.loads(cached)
+
+    conn = get_connection()
+    cursor = conn.cursor()
+
+    cursor.execute(
+        """
+        SELECT *
+        FROM payments
+        WHERE transaction_id=%s
+        """,
+        (transaction_id,)
+    )
+
+    payment = cursor.fetchone()
+
+    cursor.close()
+    conn.close()
+
+    if payment:
+
+        data = {
+            "transaction_id": str(payment[1]),
+            "sender": payment[2],
+            "receiver": payment[3],
+            "amount": float(payment[4]),
+            "status": payment[5],
+            "created_at": str(payment[6])
+        }
+
+        redis_client.setex(
+            cache_key,
+            300,
+            json.dumps(data)
+        )
+
+        print("Fetched from PostgreSQL")
+
+        return data
+
+    return None

@@ -95,18 +95,6 @@ def transaction(transaction_id):
     tx = get_transaction(transaction_id)
 
     if tx is None:
+        return jsonify({"message": "Transaction not found"}), 404
 
-        return jsonify({
-            "message": "Transaction not found"
-        }), 404
-
-    return jsonify({
-
-        "transaction_id": str(tx[1]),
-        "sender": tx[2],
-        "receiver": tx[3],
-        "amount": float(tx[4]),
-        "status": tx[5],
-        "created_at": str(tx[6])
-
-    }), 200
+    return jsonify(tx)

@@ -1,9 +1,14 @@
+import os
+from dotenv import load_dotenv
 import psycopg2
+
+load_dotenv()
+
 def get_connection():
     return psycopg2.connect(
-        host="localhost",
-        database="transaction_engine",
-        user="postgres",
-        password="2410",
-        port="5432"
+        host=os.getenv("DB_HOST"),
+        database=os.getenv("DB_NAME"),
+        user=os.getenv("DB_USER"),
+        password=os.getenv("2410"),
+        port=os.getenv("5432")
     )
